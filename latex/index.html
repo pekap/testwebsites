@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+<script type="text/javascript" src="d3.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="1chart.js"></script>
+<script type="text/javascript">
+    LatexIT.add('p',true);
+</script>
+<link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+<body>
+<h2>Notes about current progress</h2>
+<p>For any damaged network with power vector $P$ there exists pre-contingency network that has the same
+structure except tripped contingecy lines with power vector $\tilde P$.<br>
+If there are several contingency lines in set $C$ then we can easily represent one power
+vector via another:
+<div lang="latex">(I+\delta _{C} B ^{-1} )\tilde P=P</div>
+<p>
+Where $\delta _{C} $ is a minor of matrix $B$ that correspons to contingency set $C$. Since
+such minors have only $|C|$ non-zero rows we can represent $\delta _{C} B^{-1} $ in the following way:</p>
+<div lang="latex">\delta _{C} B ^{-1}  =  U _{C} V _{C} ^{T}</div>
+<p>Where $U _{C}$ and $V _{C}$ (both are of size $N_{buses} \times |C|$ are the parts of matrices $U,V$ (square matrices of
+size $ N_{buses} \times N_{buses} $). Then the relationship between $P$ and $\tilde P$ can be given
+in the following way:</p><br>
+<div lang="latex">\tilde P = P - U_C [I + V_C^T U_C]^{-1} V_C^T P </div><br>
+<p>Lets do some denotions:</p>
+<div lang="latex">V_C^T U_C = A_C = Diag(A_C) + NonDiag(A_C) = d_C + n_C </div>
+<div lang="latex">V_C^T U_C = d_C + n_C </div>
+<p>Then line flows can be represented as following:</p><br>
+<div lang="latex">F = - Y U^{T} B^{-1} P </div>
+<div lang="latex">N_L \times 1 = [N_L \times N_L] [N_L \times N_B] [N_B \times N_B] [N_B \times 1] </div><br>
+<p>Which means that new line flows (after contingecy) are equal to:</p><br>
+<div lang="latex">\tilde F = F + Y U^{T} B^{-1} U_C [I+V_C^T U_C] ^{-1} V_C^T P</div>
+<br>
+<p>Lets denote $\Gamma_C = Y U^{T} B^{-1} U_C$ and $q_C=V_C^T P$ then:</p>
+<br>
+<div lang="latex">\tilde F = F + \Gamma_C [I+A_C] ^{-1} q_C</div>
+<br>
+<p>Which means that in order to assure safety of the contigency we should prove:</p>
+<div lang="latex"> -F_{Lim} - F < \Gamma_C [I+A_C] ^{-1} q_C < F_{Lim} - F</div>
+<p>Having two diagonal matrices that represents Limitations $L_{up}=Diag(F_{Lim}-F)$ and
+$L_{bot}=Diag(-F_{Lim}-F)$ we get:</p>
+<br>
+<div lang="latex">L_{up}^{-1} \Gamma_C [I+A_C] ^{-1} q_C < \boldsymbol{1}</div>
+<div lang="latex">L_{bot}^{-1} \Gamma_C [I+A_C] ^{-1} q_C < \boldsymbol{1}</div>
+<br>
+<p>Lets exploit diagonal and nondiagonal representation of the matrix $A_C$</p>
+<div lang="latex">[I+d_C+n_C]^{-1} = (1+d_C)^{-1} - (1+d_C)^{-1} n ((1+d_C)^{-1} n +1)^{-1}</div> 
+<p>Denoting $\Delta_C=(1+d_C)^{-1} n$ we get</p>
+<div lang="latex">[I+d_C+n_C]^{-1} = (1+d_C)^{-1} - \Delta_C (\Delta_C+1)^{-1} </div>
+
+<p>So finally we get:</p>
+<div class="highlighted" lang="latex">L^{-1} \Gamma_C (1+d_C)^{-1} q_C - L^{-1} \Gamma_C \Delta_C (\Delta_C+1)^{-1} q_C < \boldsymbol 1 </div>
+<div id="chart1">
+    
+</div>
+</body>
+</html>

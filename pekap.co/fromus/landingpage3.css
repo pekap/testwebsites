@@ -1,0 +1,214 @@
+html {
+    /*background: #f1f1f1;
+ */
+    zoom: 100%;
+
+    margin: 0px;
+    background: #f1f1f1;
+    height: 100%;
+} 
+
+body {
+    margin: 0px;
+ 
+
+
+    height: 100%;
+} 
+
+
+/*******************************************************************
+LAYOUT
+*******************************************************************/
+#bg_layer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('pattern1.gif');
+    background-repeat: repeat;     
+    opacity: 0.05;
+    z-index: -4;
+}
+div {
+} 
+
+#header {
+    width: 100%;
+ 
+
+
+} 
+
+#line {
+    height: 20px;
+ 
+
+
+    background: #0D69AF;
+    box-shadow: 0px 1px 5px 0px rgb(10, 87, 146);
+} 
+
+#logo { 
+    width: 200px;
+    margin: 0px auto;
+    height: 68px;
+    background: white;
+    background-image: url('fromus.png');
+
+    background-size: 200px auto;
+    background-repeat: no-repeat;
+    margin-top: -14px;
+    border: 10px solid #0D69AF;
+    box-shadow: 0px 2px 5px 0px rgb(10, 87, 146);
+} 
+
+#bodywrapper { 
+
+
+} 
+#videoblock{
+    margin-top: 40px;
+    height: 410px;
+    z-index: 1;
+}
+#videoline{
+    top: 185px;
+    position: absolute;
+    height: 300px;
+    width: 100%;
+    background: #0D69AF;
+    z-index: -2;
+    opacity: 1;
+    box-shadow: 0px 5px 10px 0px rgb(0, 69, 122);
+}
+#videoelement{
+    width: 642px;
+  
+    z-index: 100;
+    height: 402px;
+    border: 5px solid #0D69AF;
+    background: #0D69AF;
+    float: left;
+    margin-right: 48px;
+    box-shadow: 0px 5px 15px 0px rgb(0, 69, 122);
+}
+#videotext{
+    z-index: 100;
+    
+    color: rgb(255, 255, 255);
+    float: left;
+    width: 650px;
+    position: relative;
+    top: 160px;
+    line-height: 45px;
+    letter-spacing: 0px;
+    font-size: 28px;
+    font-family: Segoe UI, Calibri;
+    margin-left: 48px;
+    text-shadow: 0px 0px 5px rgb(145, 184, 214);
+}
+                
+#footer {
+    bottom: 0px;
+ 
+
+
+    color: white;
+    position: absolute;
+    font-family: Segoe UI;
+    font-size: 20px;
+    opacity: 0.3;
+    width: 100%;
+    background: #0D69AF;
+}
+#decorativeline{
+    width: 2px;
+    
+    height: 302px;
+    float: left;
+    top: 52px;
+    background: white;
+    position: relative;
+    box-shadow: 0px 0px 20px 1px white;
+}
+.centric{
+    margin: 0px auto;
+    width: 1400px;
+    height: 410px;
+}
+#placeholder{
+    width: 640px;
+    height: 400px;
+    position: absolute;
+    z-index: 200;
+    cursor: pointer;
+}
+#placeholder .plc{
+    width: 642px;
+    background: #f1f1f1;
+    background-image:url('placeholder.png'); 
+    height: 401px;
+    background-size: 642px auto;
+    background-repeat: no-repeat;
+}
+
+#signupblock{
+    margin-top: 100px;
+    
+}
+#emailinput{
+    border: 6px solid rgb(187, 187, 187);
+    border-right: none;
+    background: none;
+    padding: 10px 21px;
+    float: left;
+    font-size: 50px;
+    font-family: segoe ui;
+    line-height: 70px;
+    color: rgb(0, 70, 116);
+    margin: 0px;
+    height: 100px;
+    box-sizing: border-box;
+    width: 550px;
+}
+#emailinput:focus{
+    border: 6px solid #0D69AF;
+    border-right: none;
+    outline: none;
+    background: #f1f1f1;
+}
+#joinbutton{
+    background: #0D69AF;
+    
+    color: #f1f1f1;
+    font-size: 50px;
+    font-family: Segoe ui,Calibri;
+    width: 200px;
+    box-sizing: border-box;
+    float: left;
+    font-weight: bold;
+    margin: 0px;
+    height: 100%;
+    line-height: 100px;
+    padding: 0px 50px;
+    cursor: pointer;
+}
+#joinbutton:hover{
+    background: rgb(17, 123, 204);
+}
+input::-webkit-input-placeholder{
+    font-size: 30px;
+}
+input:-moz-placeholder {
+    font-size: 30px;
+}
+input:-ms-input-placeholder{
+    font-size: 30px;
+}
+#everything{
+    width: 300px;
+    
+    margin: 0px auto;
+    text-align: center;
+    font-family: Segoe UI, Calibri;
+}

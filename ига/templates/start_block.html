@@ -1,0 +1,35 @@
+{% extends "greetingpage.html" %}
+{% load staticfiles %}
+{% block css_and_js %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/start_block.css' %}" />
+{% endblock %}
+{% block start_opened %}opened{% endblock %}
+{% block content %}
+<div id="pop_up_new">
+    <div class="ppp_description">
+            Who is the lucky recipient of this greeting?
+    </div>
+    <div id="ppp_name">
+            <input type="text">
+            <p>&#8592 type the name/nickname</p>
+            <div style="display: block; clear: both;"></div>
+    </div>
+    
+    <div class="ppp_description">
+            Please enter you email and password to sign-up
+    </div>
+    <div class="ppp_sub_description">
+        (It is necessary for you to be able to come back to your greeting and make changes)
+    </div>
+    <div id="ppp_emailpswd">
+            <input type="text">
+            <p>&#8592 email | password &#8594</p>
+            <input type="text">
+            <div style="display: block; clear: both;"></div>
+    </div>
+    <a href="" id="ppp_gofurther">
+            Go further
+    </a>
+    <div style="display: block; clear: both;"></div>
+</div>
+{% endblock %}

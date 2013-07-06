@@ -1,0 +1,120 @@
+#rcrd_block{
+    width: 800px;
+    margin: 0px auto;
+}
+/* Record Pop-up */
+    #rcrd_gofurther{
+            display: block;
+            float: left;
+            text-decoration: none;
+            margin: 0px auto;
+            margin-top: 45px;
+            margin-left: 141px;
+            font-size: 30px;
+            padding: 5px 10px;
+            color: white;
+            font-weight: bold;
+            background: #1E82CC;
+            /*box-shadow: 0px 5px 40px -16px #666;
+            background: -webkit-linear-gradient(to bottom, rgba(245,246,246,0.57) 0%,rgba(184,186,198,0.57) 49%,rgba(245,246,246,0.57) 100%);
+	    */
+    }
+    #rcrd_gofurther:hover{
+            background: #2672EC;/*black;*/
+    }
+    #rcrd_leftside{
+        width:400px;
+        height: 500px;
+        margin: 0px;
+        float:left;
+    }
+        #rcrd_webcam{
+            width:300px;
+            height: 400px;
+            margin: 50px auto;
+        
+            heigth: 400px;
+            background: rgb(245, 255, 192);
+            border: 3px solid #666;
+}
+    #rcrd_rightside{
+        width:400px;
+        margin: 0px;
+        float:left;
+    
+        height: 500px;
+        padding-top: 50px;
+}
+        #rcrd_iconline{
+            width:400px;
+        }
+            #rcrd_icons{
+                margin:0px auto;
+            
+                width: 400px;
+}
+                .rcrd_iconrcrd{
+                    background-image: url(../images/recordpic.png);
+                    background-position:center;
+                    background-size: 170px 170px;
+                    background-repeat:repeat-x;
+                    width: 100px;
+                    height: 100px;
+                    float: left;
+                    padding-top: 18px;
+                    margin: 0px 47px;
+                
+                    display: inline;
+                    cursor: pointer;
+}
+                .rcrd_iconwatch{
+                    background: #ddd;
+                    background-image:url(../images/watch.png);
+                    background-position:center;
+                    background-size: 170px 170px;
+                    background-repeat:repeat-x;
+                    width: 100px;
+                    float: left;
+                    height: 100px;
+                    margin: 0px 40px;
+                
+                    display: inline;
+                    padding-bottom: 10px;
+                    cursor: pointer;
+}
+                .rcrd_iconwatch:hover{
+                    background: #666;
+                    background-image:url(../images/watch.png);
+                    background-position:center;
+                    background-repeat:repeat-x;
+                    background-size: 170px 170px;
+                }
+        #rcrd_yourname{
+            width:400px;
+            text-align: left;
+        
+            font-size: 30px;
+            color: #666;
+            margin-top: 40px;
+            padding-left: 78px;
+}
+		#rcrd_block input,
+		#rcrd_block textarea
+		{
+			float: left;
+			clear: right;
+			border: solid 1px #666;
+			display: block;
+			line-height: 35px;
+			width: 200px;
+			box-shadow: inset 0px 0px 2px 0px #666;
+		
+			font-size: 30px;
+			padding: 0px 7px;
+			margin: 0px auto;
+			margin-top: 10px;
+			margin-right: 30px;
+			font-family: Segoe UI;
+			font-weight: normal;
+			margin-left: 75px;
+		}

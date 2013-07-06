@@ -1,0 +1,33 @@
+{% extends "greetingpage.html" %}
+{% load staticfiles %}
+{% block css_and_js %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/invite_block.css' %}" />
+{% endblock %}
+{% block invite_opened %}opened{% endblock %}
+{% block content %}
+<div id="invt_block">
+	<div class="invt_description">
+		Add more participants to the video
+	</div>
+	<div class="invt_sub_description">
+		(You can return to this step any time and add more)
+	</div>
+	<div id="invt_emails">
+		<input placeholder="guys@smth.com" type="text"/>
+		<p>&#8592 enter emails</p>
+		<div style="display: block; clear: both;"></div>
+	</div>
+	<div id="invt_msgbody">
+		<textarea placeholder="'Hey, guys! Our friend Eric has birthday next week. I recently found amazing website! Let's use it to create awesome gift for him'" type="text" cols="40" rows="5"></textarea>
+		<p>&#8592 enter text</p>
+		<div style="display: block; clear: both;"></div>
+	</div>
+
+	<a href="" id="invt_gofurther">
+		Invite!
+	</a>
+	<div style="display: block; clear: both;"></div>
+</div>
+{% endblock %}		
+
+			

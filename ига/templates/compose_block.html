@@ -1,0 +1,144 @@
+{% extends "greetingpage.html" %}
+{% load staticfiles %}
+{% block css_and_js %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/compose_block.css' %}" />
+	<script type="text/javascript" src="{% static 'jscript/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'jscript/jquery-ui.js' %}"></script>
+	<script type="text/javascript" src="{% static 'jscript/jquery_punch.js' %}"></script>
+	<script type="text/javascript" src="{% static 'jscript/myscript.js' %}"></script>
+{% endblock %}
+{% block compose_opened %}opened{% endblock %}
+{% block content %}
+<iframe class="hiw_video" src="http://www.youtube.com/embed/rR94NDIfGmA?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+<div id="videosblock">
+	<ul class="sortable-list">
+		<li class="first">
+			<div class="vl_empty left">
+			</div>
+			<div class="vl_notrecorded element">
+				<div class="vl_sadface">
+					<a href="greetingpage_record.html" class="youoverlay">
+					</a>
+				</div>
+				<p class="pname">You</p>
+				<p class="pemail">you@mit.edu</p>
+				<div class="closebutton"></div>
+			</div>
+			<div class="vl_empty right">
+			</div>
+			<div style="display: block; clear: both;"></div>
+		</li>
+		<li class="second">
+			<div class="vl_empty left">
+			</div>
+			<div class="vl_video element">
+				<video poster='vr.png' controls>
+						<source src="http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;">
+				</video>
+				<p class="pname cool">Jennie</p>
+				<p class="pemail">drinkingjuice@mit.edu</p>
+				<div class="closebutton wide"></div>
+			</div>
+			<div class="vl_empty right">
+			</div>
+			<div style="display: block; clear: both;"></div>
+		</li><!--
+		<li class="second">
+			<div class="vl_empty left">
+			</div>
+			<div class="vl_video element">
+				<video poster='vr.png' controls>
+						<source src="http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;">
+				</video>
+				<p class="pname cool">Eduardo</p>
+				<p class="pemail">cereals@mit.edu</p>
+				<div class="closebutton wide"></div>
+			</div>
+			<div class="vl_empty right">
+			</div>
+			<div style="display: block; clear: both;"></div>
+		</li>-->
+		<li>
+			<div class="vl_empty left">
+			</div>
+			<div class="vl_notrecorded element">
+				<div class="vl_sadface">
+					<div class="overlay">
+					<a style="
+						display: block;
+						position: relative;
+						font-size: 30px;
+						top: 25%;
+						width: 100px;
+						text-align: center;
+						color: red;
+					    ">remind</a>
+					</div>
+				</div>
+				<p class="pname">James</p>
+				<p class="pemail">james@mit.edu</p>
+				<div class="closebutton"></div>
+			</div>
+			<div class="vl_empty right">
+			</div>
+			<div style="display: block; clear: both;"></div>
+		</li><!--
+		<li>
+			<div class="vl_empty left">
+			</div>
+			<div class="vl_notrecorded element">
+				<div class="vl_sadface">
+					<div class="overlay">
+					<a style="
+						display: block;
+						position: relative;
+						font-size: 30px;
+						top: 25%;
+						width: 100px;
+						text-align: center;
+						color: red;
+					    ">remind</a>
+					</div>
+				</div>
+				<p class="pname">Anna</p>
+				<p class="pemail">qwerty@mit.edu</p>
+				<div class="closebutton"></div>
+			</div>
+			<div class="vl_empty right">
+			</div>
+			<div style="display: block; clear: both;"></div>
+		</li>
+		<li class="second">
+			<div class="vl_empty left">
+			</div>
+			<div class="vl_video element">
+				<video poster='vr.png' controls>
+						<source src="http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;">
+				</video>
+				<p class="pname cool">Lee</p>
+				<p class="pemail">hilow@mit.edu</p>
+				<div class="closebutton wide"></div>
+			</div>
+			<div class="vl_empty right">
+			</div>
+			<div style="display: block; clear: both;"></div>
+		</li>-->
+		<li>
+			<div class="vl_empty left">
+			</div>
+			<div class="vl_video element">
+				<video poster='vr.png' controls>
+						<source src="http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;">
+				</video>
+				<p class="pname cool">Rebecca</p>
+				<p class="pemail">becca@mit.edu</p>
+				<div class="closebutton wide"></div>
+			</div>
+			<div class="vl_empty right">
+			</div>
+			<div style="display: block; clear: both;"></div>
+		</li>
+	</ul>
+	<div style="display: block; clear: both;"></div>
+</div>
+{% endblock %}

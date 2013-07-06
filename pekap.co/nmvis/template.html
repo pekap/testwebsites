@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="greetingpage.css" />
+	</head>
+
+
+	<body>
+		<!-- HEADERRRRR -->
+		<div id="header">
+			<div id="logo">
+				<a href="mainpage.html">VIDEOROAST.COM</a>
+			</div>
+			
+			<div id="userinfo">
+				Hey user
+			</div>
+			<div style="display: block; clear: both;"></div>
+		</div>
+		
+		<!--BODY -->
+		<div id="page-wrap">
+			<div id="sidebar">
+				<!--<div class="sidedecorationwraper">
+					<div class="sidedecoration">	
+					</div>
+				</div>-->
+				<div class="sideitem">
+					<div class="nameitem">
+					   Choose	
+					</div>
+					<div class="number">
+						1.
+					</div>
+					
+					<div style="display: block; clear: both;"></div>
+				</div>
+				<div class="sideitem">
+					<div  class="nameitem">
+					   Invite	
+					</div>
+					<div class="number">
+						2.
+					</div>
+					
+					<div style="display: block; clear: both;"></div>
+				</div>
+				<div class="sideitem">
+					<div  class="nameitem">
+					   Record	
+					</div>
+					<div class="number">
+						3.
+					</div>
+					
+					<div style="display: block; clear: both;"></div>
+				</div>
+				<div class="sideitem">
+					<div  class="nameitem opened">
+					   Organize	
+					</div>
+					<div class="number">
+						4.
+					</div>
+					
+					<div style="display: block; clear: both;"></div>
+				</div>
+				<div class="bottomone sideitem">
+					<div class="nameitem">
+					   Finish	
+					</div>
+					<div class="number">
+						5.
+					</div>
+					
+					<div style="display: block; clear: both;"></div>
+				</div>
+				<div style="display: block; clear: both;"></div>
+			</div>
+			<div id="page_body">
+
+				<div style="display: block; clear: both;"></div>	
+			</div>
+			<div style="display: block; clear: both;"></div>
+		</div>
+		<!-- FOOTERRRRR -->
+		<div id="footer">
+			<ul id="f_links">
+				<li><a href="">About</a></li>
+				<li><a href="">Support</a></li>
+				<li><a href="">Contact us</a></li>
+			</ul>
+			<p id="f_copyright">
+				&#169; Videoroast.com all rights reserved
+			</p>
+			<div style="display: block; clear: both;"></div>
+		</div>
+		
+		
+		<!-- Example JavaScript files -->
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.custom.min.js"></script>
+
+<!-- Example jQuery code (JavaScript)  -->
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	// Example 1.1: A single sortable list
+	$( ".sortable-list" ).sortable({ helper: 'clone' });
+	$('.sortable-list li:first .vl_empty.left').css("visibility","hidden");
+	$('.sortable-list li:last .vl_empty.right').css("display","none");
+	$('.sortable-list').sortable();
+	//$( ".sortable-list" ).sortable({ cursorAt: { left: 52,top:52 } });
+	//$( '.sortable-list' ).sortable( "option", "containment", 'parent' );
+	$( ".sortable-list" ).sortable({ cursor: 'crosshair' });
+	$(".element").mouseover(function(){
+			$( ".sortable-list" ).sortable({ cursorAt: { left: ($(this).width())/2,top:72 } });
+		});
+	$("li .closebutton").css("display","none");
+	$("li").mouseover(function(){
+			$(".closebutton",this).css("display","block");
+		});
+	$("li").mouseout(function(){
+			$("li .closebutton").css("display","none");
+		});
+	$('.sortable-list').sortable({
+			start: function(event,ui){
+				$(".vl_empty").css("display","block");
+				$(".vl_empty",ui.helper).css("display","none");
+				//$(".vl_empty",ui.item).css("display","none");
+				ui.helper.css("width","104px");
+				ui.helper.css("height","104px");
+				$(".ui-sortable-placeholder").css("visibility","visible");
+				$(".ui-sortable-placeholder").css("width","104px");
+				$(".ui-sortable-placeholder").css("height","104px");
+				$(".ui-sortable-placeholder").css("opacity","0.1");
+				$(".ui-sortable-placeholder").css("margin-left","0px");
+				console.log(ui.placeholder.index());
+				if((ui.placeholder.index()>1)&&(ui.item.index()==1)){
+					$(".sortable-list li:nth-child(2) .vl_empty.left").css("visibility","hidden");
+				}
+				if((ui.placeholder.index()>1)&&(ui.item.index()>1)){
+					$(".sortable-list li:nth-child(1) .vl_empty.left").css("visibility","hidden");
+				}
+				if ((ui.placeholder.index()==0)||((ui.placeholder.index()==1)&&(ui.item.index()==0))){
+					$(".ui-sortable-placeholder").css("margin-left","40px");
+				}
+				var nit=$(".sortable-list>li").length-1;
+				console.log($(".sortable-list>li").length);
+				if(ui.placeholder.index()<nit-1){
+					$(".sortable-list li:nth-child("+nit+") .vl_empty.right").css("display","none");
+					console.log($(".sortable-list li:last .vl_empty.right"));
+				}
+				/*if (ui.item.hasClass("first")){
+					$(".second .vl_empty.left").css("display","none");
+					console.log("dfdf");
+				};*/
+			},
+			update: function(event, ui) {
+
+				//$("li:first").addClass('first');
+				//console.log("changed");
+			},
+			change: function(event,ui) {
+				//console.log("placehoder",ui.placeholder.index(),"itemindex",ui.item.index());
+				var nit=$(".sortable-list>li").length-1;
+				var plin=ui.placeholder.index()+1;
+				var itin=ui.item.index()+1;
+				if((plin>1)&&(itin==1)){
+					console.log(ui.placeholder.index());
+					$(".sortable-list li:nth-child(2) .vl_empty.left").css("visibility","hidden");
+					$(".ui-sortable-placeholder").css("margin-left","0px");
+				}
+				if((plin>1)&&(itin>1)){
+					console.log(ui.placeholder.index());
+					$(".sortable-list li:nth-child(1) .vl_empty.left").css("visibility","hidden");
+					$(".ui-sortable-placeholder").css("margin-left","0px");
+				}
+				if((plin==2)&&(itin==1)){
+					$(".sortable-list li:nth-child(3) .vl_empty.left").css("visibility","visible");
+					$(".ui-sortable-placeholder").css("margin-left","40px");
+				}
+				if((plin==1)&&(itin>1)){
+					$(".sortable-list li:nth-child(2) .vl_empty.left").css("visibility","visible");
+					$(".ui-sortable-placeholder").css("margin-left","40px");
+				}
+				console.log($(".sortable-list>li"),nit,plin,itin);
+				var nit1=nit-1;
+				var nit2=nit1-1;
+				if ((plin<nit)&&(itin<nit1)){
+					console.log("length",$(".sortable-list>li").length);
+					$(".sortable-list li:nth-child("+nit+") .vl_empty.right").css("display","none");	
+				}
+				if ((plin<nit)&&(itin>=nit1)){
+					console.log("WTF???");
+					$(".sortable-list li:nth-child("+nit1+") .vl_empty.right").css("display","none");	
+				}
+				if ((plin==nit)&&(itin<nit-1)){
+					$(".sortable-list li:nth-child("+nit1+") .vl_empty.right").css("display","block");	
+				}
+				if ((plin>nit-2)&&(itin>nit-2)){
+					$(".sortable-list li:nth-child("+nit2+") .vl_empty.right").css("display","block");	
+				}
+				$(".ui-sortable-helper .vl_empty").css("display","none");
+				$(".ui-sortable-placeholder").css("visibility","visible");
+				$(".ui-sortable-placeholder").css("width","104px");
+				$(".ui-sortable-placeholder").css("height","104px");
+				$(".ui-sortable-placeholder").css("opacity","0.1");
+				$(".sortable-list:first .vl_empty .left").css("display","none");
+			},
+			stop: function(event,ui){
+				$(".first").removeClass("first");
+				$(".second").removeClass("second");
+				$(".sortable-list li:first").addClass("first");
+				$(".sortable-list li:nth-child(2)").addClass("second");
+				$(".sortable-list li .vl_empty").css("display","block");
+				$(".sortable-list li .vl_empty").css("visibility","visible");
+				$(".sortable-list li:first .vl_empty.left").css("visibility","hidden");
+				$(".sortable-list li:last .vl_empty.right").css("display","none");
+			}
+		});
+
+});
+
+</script>
+	</body>
+
+	
+	
+</html>

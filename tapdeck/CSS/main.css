@@ -1,0 +1,277 @@
+body{
+    font-family: Lucida Sans Unicode, Bebas Neue, Myriad Pro, Sergoe UI, Cambria, Georgia, "Times New Roman", Times, serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased; 
+    font-size:18px; 
+    line-height: 1.5;    
+    margin:0px;
+    color: #333333; 
+    padding:0px;/*
+    background-color: white;
+    /*background-image: url(../images/bg.png);
+    background-repeat: repeat;*/
+}
+#page-wrap {
+  width: 800px;
+  margin: 0 auto;
+}
+
+/* Three main blocks */
+#bbody{
+    width: 800px;
+}
+#header{
+  height: 40px;
+  color: #4C4C4C;
+  font-size: 30px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+#footer{
+    font-family: Lucida Sans;
+    color: #aaa;
+    height:20px;
+    font-size: 15px;
+    width: 800px;
+    display: inline-block;
+    padding: 10px 0px;
+    margin: 20px 0px;
+    border-top: 1px solid #E1E1E1;
+    text-align: center;
+}
+#menu{
+    display: inline-block;
+}
+#menu a{
+    text-decoration: none;
+    font-size: 25px;
+    color: #333;
+    padding: 0px 20px;
+    font-family: Segoe UI, Calibri, Lucida Sans,Mangal,Haettenschweiler, Bebas Neue;
+}
+
+.tdm_1{
+    border-left: 1px solid #E1E1E1;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0px;
+border-color: gray;
+}
+
+#menu tbody{
+    width:auto;
+    display: inline-block;
+}
+#menu tr{
+    width:auto;
+    display: inline-block;
+}
+#tdmenu{
+    padding:0;
+    overflow: 0;
+    border-top: 1px solid #E1E1E1;
+}
+#menu td{
+    cursor: pointer;
+    height: 50px;
+    vertical-align: middle;
+    margin: 0px 0px;
+    /*padding: 0px 16px;*/
+    /*padding-top: 3px;*/
+    /* margin: 0px 2px; */
+    
+    border-right: 1px solid #E1E1E1;
+    /*border-top: 1px solid #E1E1E1;*/
+    border-bottom: 1px solid #E1E1E1;
+    box-shadow: rgba(0, 0, 0, .15) 0 1px 3px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(249, 249, 249, 1)), color-stop(100%, rgba(240, 240, 240, 1)));
+    background: -moz-linear-gradient(top, rgba(250,250,250,1) 50%, rgba(245,245,245,1) 100%);
+    background: -ms-linear-gradient(linear, left top, left bottom, color-stop(50%, rgba(249, 249, 249, 1)), color-stop(100%, rgba(240, 240, 240, 1)));
+    background: -o-linear-gradient(linear, left top, left bottom, color-stop(50%, rgba(249, 249, 249, 1)), color-stop(100%, rgba(240, 240, 240, 1)));
+    background: -linear-gradient(linear, left top, left bottom, color-stop(50%, rgba(249, 249, 249, 1)), color-stop(100%, rgba(240, 240, 240, 1)));
+}
+#menu td:hover,
+#menu td:focus,
+#menu td:active{
+        background: none;
+        text-shadow: -1px -1px -2px white;
+	background:#f0f0f0;
+	background:-webkit-gradient(linear,left top, left bottom, color-stop(50%, rgba(249,249,249,1)), color-stop(100%, rgba(224,224,224,1)));
+	background:-webkit-linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+	background:   -moz-linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+	background:    -ms-linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+	background:     -o-linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+	background:        linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+}
+#menu td.tdopened{
+        background: none;
+        text-shadow: -1px -1px -2px white;
+	background:#f0f0f0;
+	background:-webkit-gradient(linear,left top, left bottom, color-stop(50%, rgba(249,249,249,1)), color-stop(100%, rgba(224,224,224,1)));
+	background:-webkit-linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+	background:   -moz-linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+	background:    -ms-linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+	background:     -o-linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+	background:        linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+}
+
+
+/* content */
+#bbody{
+   /*font-family: Sergoe UI;*/
+    display: inline-block;
+   padding-top: 10px;
+   background-position: 20px 200px 200px;
+}
+#bbody div{
+    float:left;
+}
+.content{
+    padding-top: 10px;
+}
+#tab_tapdeck .slog{
+    font-size: 20px;
+    color: #555;
+    font-family: Segoe UI,Haettenschweiler, Agency FB,bebas neue;
+    text-transform: uppercase;
+    text-align: center;
+}
+/*
+#tab_tapdeck iframe{
+    padding: 0px 200px;
+} */
+#tab_about div{
+    font-family: Segoe UI, Lucida Sans, Bebas Neue, serif;
+    color: #555555;
+    font-size: 20px;
+    line-height: 1.4em;
+    width: 510px;
+}
+#hiw{
+    display:inline-block;
+    margin-top:10px;
+}
+#hiw div{
+    width: 240px;
+    float:left;
+    display:inline-block;
+    font-weight:bold;
+    font-size: 17px;
+    padding:0px 5px;
+}
+#hiw div h1{
+    text-align: center;
+    width: 230px;
+    float:left;
+    font-size: 20px;
+    font-weight: bold;
+}
+#hiw div h2{
+    /*text-align: center;*/
+    width: 230px;
+    float:left;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+#tab_team{
+    font-family: Segoe UI,Lucida Sans, Bebas Neue, serif;
+    color: #555555;
+    font-size: 20px;  
+}
+
+.center {
+display: block;
+margin-right: auto;
+margin-left: auto;
+text-align: center;
+}
+
+
+.depth {
+    font-size: 20px;
+    font-family: Segoe UI,Haettenschweiler,Bebas neue;
+    text-align: right;
+    font-weight: bold;
+    padding-left: 100px;
+    padding-top: 3px;
+}
+#table_team{
+    margin-top: 20px;
+}
+ .t_b_description{
+    padding-left: 5px;
+    font-size: 17px;
+}
+
+div.enter-field{
+  width: 450px;
+  line-height: 30px;
+  height: 30px;
+  float: left;
+  border: none;
+  display: inline-block;
+}
+input::-webkit-input-placeholder {
+    color:    rgba(255,255,255,0.8);
+}
+input:-moz-placeholder {
+    color:    rgba(255,255,255,0.8);
+}
+input:-ms-input-placeholder {
+    color:    rgba(255,255,255,0.8);
+}
+#name_field{
+  border: none;
+  font-family: Sergoe UI;
+  background-color: #FD7220;
+  line-height: 30px;
+  padding: 0px 5px;
+  font-size: 16pt;
+  color: #fff;
+  width: 300px;  
+  border: 2px solid #666666;
+}
+#enter-field-submit{    
+    font-size: 25px;
+    line-height: 30px;
+    cursor: pointer;
+    vertical-align: middle;
+    /*padding: 0px 16px;*/
+    /*padding-top: 3px;*/
+    /* margin: 0px 2px; */
+    
+    padding: 0px 10px;
+    border: 1px solid #E1E1E1;
+    /*border-top: 1px solid #E1E1E1;*/
+    box-shadow: rgba(0, 0, 0, .15) 0 1px 3px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(249, 249, 249, 1)), color-stop(100%, rgba(240, 240, 240, 1)));
+    background: -moz-linear-gradient(top, rgba(250,250,250,1) 50%, rgba(245,245,245,1) 100%);
+    background: -ms-linear-gradient(linear, left top, left bottom, color-stop(50%, rgba(249, 249, 249, 1)), color-stop(100%, rgba(240, 240, 240, 1)));
+    background: -o-linear-gradient(linear, left top, left bottom, color-stop(50%, rgba(249, 249, 249, 1)), color-stop(100%, rgba(240, 240, 240, 1)));
+    background: -linear-gradient(linear, left top, left bottom, color-stop(50%, rgba(249, 249, 249, 1)), color-stop(100%, rgba(240, 240, 240, 1)));
+}
+#enter-field-submit:hover,
+#enter-field-submit:focus,
+#enter-field-submit:active{
+        background: none;
+        text-shadow: -1px -1px -2px white;
+	background:#f0f0f0;
+	background:-webkit-gradient(linear,left top, left bottom, color-stop(50%, rgba(249,249,249,1)), color-stop(100%, rgba(224,224,224,1)));
+	background:-webkit-linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+	background:   -moz-linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+	background:    -ms-linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+	background:     -o-linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+	background:        linear-gradient(top, rgba(249,249,249,1) 50%, rgba(224,224,224,1) 100%);
+}
+table #order{
+    border-collapse: separate;
+    border-spacing: 10px;
+    border-color: white;
+}
+
+/*
+display: table-cell;
+vertical-align: middle;
+text-align: center*/

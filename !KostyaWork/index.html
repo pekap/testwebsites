@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript" src="myscript.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+<body>
+    <div id="page-wrap">
+        <div id="header">
+            Main formulas
+        </div>
+        <div id="content-wrap">
+            <div id="formulas">
+                Initial equation:
+		\[
+			\left(
+				\begin{array}{ccc}
+					M_x & M_y & M_z
+				\end{array}
+			\right)
+			\left(
+				\begin{array}{ccc}
+					1 & \delta & \delta \\
+					\delta & 1 & \delta \\
+					\delta & \delta & 1
+				\end{array}
+			\right)^{-1}
+			\left(
+				\begin{array}{c}
+					f_x \\
+					f_y \\
+					f_z
+				\end{array}
+			\right)< 1
+		\]
+		Then we can bound central matrix:
+		\[
+			\left(
+				\begin{array}{ccc}
+					M_x & M_y & M_z
+				\end{array}
+			\right)
+			\frac{1}{1-3\delta^2-2\delta^3}
+			\left(
+				\begin{array}{ccc}
+					1+\delta^2 & \delta+\delta^2 & \delta+\delta^2 \\
+					\delta+\delta^2 & 1+\delta^2 & \delta+\delta^2 \\
+					\delta+\delta^2 & \delta+\delta^2 & 1+\delta^2
+				\end{array}
+			\right)
+			\left(
+				\begin{array}{c}
+					f_x \\
+					f_y \\
+					f_z
+				\end{array}
+			\right)< 1
+		\]
+		Lets make some denotions:
+		\[
+		    \begin{array}{cc}
+			\xi=\frac{1+\delta^2}{1-3\delta^2-2\delta^3} & \zeta = \frac{\delta+\delta^2}{1-3\delta^2-2\delta^3} 
+		    \end{array}
+		\]
+		So:
+		\[
+			\left(
+				\begin{array}{ccc}
+					M_x & M_y & M_z
+				\end{array}
+			\right)
+			\left(
+				\begin{array}{ccc}
+					\xi & \zeta & \zeta \\
+					\zeta & \xi & \zeta \\
+					\zeta & \zeta & \xi
+				\end{array}
+			\right)
+			\left(
+				\begin{array}{c}
+					f_x \\
+					f_y \\
+					f_z
+				\end{array}
+			\right)< 1
+		\]
+		After multiplication:
+		\[
+		    M_x(\xi f_x + \zeta f_y + \zeta f_z)+
+		    M_y(\xi f_y + \zeta f_x + \zeta f_z)+
+		    M_z(\xi f_z + \zeta f_x + \zeta f_y) < 1
+		\]
+		Which is true if the following is true:
+		\[
+		\begin{array}{c}
+		    M_x(\xi f_x + \zeta f_y + \zeta f_z) < \frac{1}{3} \\
+		    M_y(\xi f_y + \zeta f_x + \zeta f_z) < \frac{1}{3} \\
+		    M_z(\xi f_z + \zeta f_x + \zeta f_y) < \frac{1}{3}
+		\end{array}
+		\]
+		Hence the follwing should be true:
+		\[
+		\begin{array}{c}
+		    f_y + f_z < \frac{1}{\zeta}(\frac{1}{3M_x} - f_x \xi)=K_x \\
+		    f_x + f_z < \frac{1}{\zeta}(\frac{1}{3M_y} - f_y \xi)=K_y \\
+		    f_x + f_y < \frac{1}{\zeta}(\frac{1}{3M_z} - f_z \xi)=K_z
+		\end{array}
+		\]
+		Which is in its turn true if:
+		\[
+		\begin{array}{cc}
+		    2 f_y < K_x & 2 f_z < K_x\\
+		    2 f_x < K_y & 2 f_z < K_y\\
+		    2 f_x < K_z & 2 f_y < K_z
+		\end{array}
+		\]
+		Filter our graph once again (remain only those lines \(\{i,j\}\) that satisfy \(K_i>2f_j\) \(K_j>2f_i  \))
+		Now all cliques of size 3 in graph represent guaranteed safe lines
+		<br>
+		\( \textbf{Better way:} \) 
+		Lets fix \( (y,z)\) pair:
+		\[
+		\begin{eqnarray}	\xi(\frac{\zeta}{\xi}(M_y+M_z)+M_x)(\frac{\zeta}{\xi}(f_y+f_z)+f_x)-\frac{\zeta^2}{\xi}(M_y+M_z)(f_y+f_z)+ \\ +\xi (M_y f_y+M_z f_z)+\zeta (M_y f_z+M_z f_y)<1
+		\end{eqnarray}
+		\]
+		<br>
+		Denoting \( \mu (y,z) = \frac{\zeta}{\xi}(M_y+M_z) \), \( \phi (y,z) = \frac{\zeta}{\xi}(f_y+f_z) \) and \( \theta (y,z) = M_y f_y + M_z f_z \) we get:
+		\[
+			(\mu(y,z)+M_x)(\phi(y,z)+f_x) < \frac{1}{\xi} - \frac{\xi - \zeta }{\xi}(\theta (y,z) + \frac{\xi}{\zeta}\mu(y,z) \phi(x,y) )
+		\]
+		Or:
+		\[
+			(\mu(y,z)+M_x)(\phi(y,z)+f_x) < \Gamma(y,z)
+		\]
+		Hence for fixed pair of indexes \( (y,z) \) we should define all \( x \) that satisfy equation. We want to do it in \( O(N^{c}_{y,z}) \) operations (number of contingencies for fixed pair of indexes. It can be done with Quadtree method. 
+		Firstly we divide our plane in rectangulars. Then define rectangulars that are above or on the hyperbole for fixed pair \( (y,z) \). Finally we determine which \( x \) are lying in those rectangulars. The computational complexity of such algorithm should be \( O(log(N^{c}_{y,z})N^{c}_{y,z}) \)   
+	    </div>
+            <div id="descriptioncolumn">
+                <div class="title">
+                    Descriptions
+                </div>
+                <div class="descr-el"  dscr="a">
+                    <div class="variable">
+                        \(x,y,z\)
+                    </div>
+                    <div class="description">
+                        Lines
+                    </div>
+		    <div style="display: block; clear: both;"></div>
+                </div>
+		<div class="descr-el"  dscr="a">
+                    <div class="variable">
+                        \(M_i\)
+                    </div>
+                    <div class="description">
+                        Bound for \(i\) column of left matrix
+                    </div>
+		    <div style="display: block; clear: both;"></div>
+                </div>
+                <div class="descr-el" dscr="b">
+                    <div class="variable">
+                        \( \delta \)
+                    </div>
+                    <div class="description">
+                        Bound (~0.1)
+                    </div>
+		    <div style="display: block; clear: both;"></div>
+                </div>
+		<div class="descr-el" dscr="b">
+                    <div class="variable">
+                        \( \xi \)
+                    </div>
+                    <div class="description">
+                        Diagonal bound \( \tilde 1 \)
+                    </div>
+		    <div style="display: block; clear: both;"></div>
+                </div>
+		<div class="descr-el" dscr="b">
+                    <div class="variable">
+                        \( \zeta \)
+                    </div>
+                    <div class="description">
+                        Off-diagonal bound \( \tilde 0.1 \)
+                    </div>
+		    <div style="display: block; clear: both;"></div>
+                </div>
+		<div class="descr-el" dscr="b">
+                    <div class="variable">
+                        \( K_i  \)
+                    </div>
+                    <div class="description">
+                        \( \frac{1}{\zeta}(\frac{1}{3M_i} - f_i \xi) \)
+                    </div>
+		    <div style="display: block; clear: both;"></div>
+                </div>
+		<div class="descr-el" dscr="b">
+                    <div class="variable">
+                        \( \mu (i,j) \)
+                    </div>
+                    <div class="description">
+                        \(  \frac{\zeta}{\xi}(M_i+M_j) \)
+                    </div>
+		    <div style="display: block; clear: both;"></div>
+                </div>
+		<div class="descr-el" dscr="b">
+                    <div class="variable">
+                        \( \phi (i,j) \)
+                    </div>
+                    <div class="description">
+                        \(  \frac{\zeta}{\xi}(f_i+f_j) \)
+                    </div>
+		    <div style="display: block; clear: both;"></div>
+                </div>
+		<div class="descr-el" dscr="b">
+                    <div class="variable">
+                        \( \theta (i,j) \)
+                    </div>
+                    <div class="description">
+                        \(  M_i f_i + M_j f_j \)
+                    </div>
+		    <div style="display: block; clear: both;"></div>
+                </div>
+		<div class="descr-el" dscr="b">
+                    <div class="variable">
+                        \( \Gamma (i,j) \)
+                    </div>
+                    <div class="description">
+                        \(  \frac{1}{\xi} - \frac{\xi - \zeta }{\xi}(\theta (i,j) + \frac{\xi}{\zeta}\mu(i,j) \phi(i,j) ) \)
+                    </div>
+		    <div style="display: block; clear: both;"></div>
+                </div>
+		<div style="display: block; clear: both;"></div>
+                <!--
+                <div class="descr_el">
+                    <div class="variable">
+                        
+                    </div>
+                    <div class="description">
+                        
+                    </div>
+                </div>-->
+            </div>
+	    <div style="display: block; clear: both;"></div>
+        </div>
+        <div id="footer">
+	    Designed and Implemeted by Petr Kaplunovich. MathJax package used
+        </div>
+	<div style="display: block; clear: both;"></div>
+    </div>
+</body>
+</html>
+<!--When \(a \ne 0 \), there are two solutions to \( ax^2 + bx + c = 0 \)  and they are
+                \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}\]
+                \[J_\alpha(x) = \sum\limits_{m=0}^\infty \frac{(-1)^m}{m! \, \Gamma(m + \alpha + 1)}{\left({\frac{x}{2}}\right)}^{2 m + \alpha} \]
+-->

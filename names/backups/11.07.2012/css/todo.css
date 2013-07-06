@@ -1,0 +1,100 @@
+html {
+  color: #444;
+  font-size: 100%;    
+  background: #f7f7f7 url(../images/bg.png) repeat center top;
+}
+
+body {
+  font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased; 
+  font-size:18px; 
+  line-height: 1.5;
+}
+
+
+.page-wrap {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  width: 770px;
+  height: 50px;
+  padding-left: 200px;
+}
+
+
+.names{
+  width:770px;
+}
+.names>div{
+  display:inline-block;
+}
+.content{
+  padding-top:17px; 
+  width: 770px;
+  float: left;
+}
+.content .left{
+  width: 40px
+}
+
+.todo-entry{
+  width:770px;
+}
+
+.thentr{
+  width:770px;
+}
+.thentr .left{
+  width:50px;
+}
+.name-text{
+  width:650px;
+}
+.name-text div{
+  width:600px;
+  word-wrap: break-word;
+}
+
+.properties{
+  width:200px;
+  padding-left:300px;
+  padding-right:300px;
+  float:left;
+}
+.properties a.categ{
+  cursor: pointer;
+  border: dotted;
+  padding: 1px 3px;
+  border-color: #111;
+  font-size: 12pt;
+}
+
+
+div.enter-field{
+  width:1000px;
+}
+
+div.enter-field>div{
+  display: inline-block;
+}
+
+
+
+
+.el-cat>div{
+  position: absolute;
+}
+.menus{
+    z-index:10;
+    background: #fff;
+}
+.menus td{
+    border: dotted thin;
+    border-color: #000;
+}
+.menus a{
+    cursor: pointer;
+}

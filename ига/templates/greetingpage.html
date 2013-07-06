@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+	<html>
+	<head>
+		{% load staticfiles %}
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/greetingpage.css' %}" />
+		{% block css_and_js %}{% endblock %} 
+
+	</head>
+
+
+	<body>
+		
+		
+		<!-- HEADERRRRR -->
+		<div id="header">
+			<div id="logo">
+				<a href="{% url 'mainpage'%}">VIDEOROAST.COM</a>
+			</div>
+			
+			<div id="userinfo">
+				Hey user
+			</div>
+			<div style="display: block; clear: both;"></div>
+		</div>
+		
+		<!--BODY -->
+		<div id="page-wrap">
+			<div id="sidebar">
+				<!--<div class="sidedecorationwraper">
+					<div class="sidedecoration">	
+					</div>
+				</div>-->
+				<div class="sideitem">
+					<a href="{% url 'start'%}" class="nameitem {%block start_opened %}{% endblock %} ">
+					   Start!	
+					</a>
+					<div class="number">
+						1.
+					</div>
+					
+					<div style="display: block; clear: both;"></div>
+				</div>
+				<div class="sideitem">
+					<a  href="{% url 'invite'%}" class="nameitem {%block invite_opened %}{% endblock %}">
+					   Invite	
+					</a>
+					<div class="number">
+						2.
+					</div>
+					
+					<div style="display: block; clear: both;"></div>
+				</div>
+				<div class="sideitem">
+					<a  href="{% url 'record'%}" class="nameitem {%block record_opened %}{% endblock %}">
+					   Record	
+					</a>
+					<div class="number">
+						3.
+					</div>
+					
+					<div style="display: block; clear: both;"></div>
+				</div>
+				<div class="sideitem">
+					<a  href="{% url 'compose'%}" class="nameitem {%block compose_opened %}{% endblock %}">
+					   Compose	
+					</a>
+					<div class="number">
+						4.
+					</div>
+					
+					<div style="display: block; clear: both;"></div>
+				</div>
+				<div class="bottomone sideitem">
+					<a href="" class="nameitem {%block finish_opened %}{% endblock %}">
+					   Finish	
+					</a>
+					<div class="number">
+						5.
+					</div>
+					
+					<div style="display: block; clear: both;"></div>
+				</div>
+				<div style="display: block; clear: both;"></div>			</div>
+			<div id="page_body">
+				{% block content %}{% endblock %}
+			</div>
+			<div style="display: block; clear: both;"></div>
+		</div>
+		<!-- FOOTERRRRR -->
+		<div id="footer">
+			<ul id="f_links">
+				<li><a href="">About</a></li>
+				<li><a href="">Support</a></li>
+				<li><a href="">Contact us</a></li>
+			</ul>
+			<p id="f_copyright">
+				&#169; Videoroast.com all rights reserved
+			</p>
+			<div style="display: block; clear: both;"></div>
+		</div>
+		
+	</body>
+
+	
+	
+</html>

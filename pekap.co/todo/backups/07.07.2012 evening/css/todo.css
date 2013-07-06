@@ -1,0 +1,122 @@
+html {
+  color: #444;
+  font-size: 100%;    
+  background: #f7f7f7 url(../images/bg.png) repeat center top;
+}
+
+body {
+  font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased; 
+  font-size:18px; 
+  line-height: 1.5;
+}
+
+
+.page-wrap {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  width: 1000px;
+  height: 50px;
+  padding-left: 200px;
+}
+
+.left-menu {
+  width: 180px;
+  float: left;
+  padding-top: 40px;
+  padding-right: 20px;
+}
+
+.left-menu a {
+width: auto;
+float: right;
+margin-top: 20px;
+}
+.names{
+  width:800px;
+}
+.names>div{
+  display:inline-block;
+}
+.content{
+  width: 800px;
+  float: left;
+}
+.content .left{
+  width: 40px
+}
+
+.todo-entry{
+  width:800px;
+}
+
+.thentr{
+  width:800px;
+}
+
+.properties{
+  width:200px;
+  padding-left:300px;
+  padding-right:300px;
+  float:left;
+}
+.properties a.categ{
+  cursor: pointer;
+  border: dotted;
+  padding: 1px 3px;
+  border-color: #111;
+  font-size: 12pt;
+}
+
+a.button {
+  cursor:pointer;
+  display: block;
+  background-color: #f7f7f7;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e7e7e7));
+  background-image: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7); 
+  background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7); 
+  background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7); 
+  background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7); 
+  color: #a7a7a7;
+  margin: 6px;
+  width: 23px;
+  height: 23px;
+  position: relative;
+  font-size:20pt;
+  text-align: center;
+  line-height: 23px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 8px #faa, inset 0px 2px 3px #fff;
+}
+
+a.button:hover {
+  text-decoration: none;
+  color: #555;
+  background: #f5f5f5;
+}
+
+
+a.button:before {
+  content: "";
+  display: block;
+  background: #fff;
+  border-top: 2px solid #ddd;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  bottom: -4px;
+  right: -4px;
+  z-index: -1;
+  border-radius: 50%;
+  box-shadow: inset 0px 8px 48px #ddd;
+}
+
+
+div.enter-field>div{
+  display: inline-block;
+  
+}

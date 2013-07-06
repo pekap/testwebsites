@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+    
+    <head>
+        <script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="myscript.js"></script>
+        <link rel="stylesheet" type="text/css" href="landingpage3.css" />
+    </head>
+    <script>
+        // Load the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/player_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      
+        // Replace the 'ytplayer' element with an <iframe> and
+        // YouTube player after the API code downloads.
+
+
+        $(document).ready(function onYouTubePlayerAPIReady(){
+            $("#placeholder").on("click",function(){
+                $("#placeholder").fadeOut(500);
+                var player;
+                pvars=new Object({
+                    rel:0,
+                    controls:1,
+                    modestbranding:1,
+                    iv_load_policy:3,
+                    theme:"light",
+                    autoplay:1
+                });
+                player = new YT.Player('ytplayer', {
+                  height: '401',
+                  width: '642',
+                  playerVars:pvars,
+                  videoId: 'bZSRAx4CMac',
+                  ended:function(){
+                    console.log("sdsd");
+                  },
+                  events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onStateChange,
+                  }
+                });
+                
+                function onPlayerReady(event) {
+                    event.target.loadVideoById('bZSRAx4CMac');
+                }
+                function onStateChange(event) {
+                    if (event.data==0){
+                        $("#placeholder").fadeIn(500);
+                        event.target.destroy();
+                    }
+                }
+            });
+        });
+    </script>
+    <body>
+        <div id="bg_layer"></div>
+        <div id="header">
+            <div id="line">
+                
+            </div>
+            <div id="logo">
+                
+            </div>
+            <div style="display: block; clear: both;"></div>
+        </div>
+        
+        <div id="bodywrapper">
+            <div id="videoblock">
+                <div id="videoline">
+                </div>
+                <div class="centric">
+                    <div id="videoelement">
+                        <div id="placeholder">
+                            <div class="plc">
+                                
+                            </div>
+                            <div style="display: block; clear: both;"></div>
+                        </div>
+                        <div id="ytplayer"></div>
+                        <div style="display: block; clear: both;"></div>
+                    </div>
+                    <div id="decorativeline">
+                        
+                    </div>
+                    <div id="videotext">
+                        Create collaborative video gifts with from.us - the first platform to make group video EASY and FAST!
+                    </div>
+                    <div style="display: block; clear: both;"></div>
+                </div>
+                <div style="display: block; clear: both;"></div>
+            </div>
+            <div id="signupblock">
+                <div class="centric" style="width:750px;height: 100px;box-shadow: 0px 5px 50px -5px rgb(148, 148, 148);">
+                    <input id="emailinput" type="text" placeholder="Enter your email to join mailing list" />
+                    <div id="joinbutton">Join</div>
+                </div>
+            </div>
+            <div style="display: block; clear: both;"></div>
+        </div>
+        
+        <div id="footer">
+            <div id="everything">
+                <span>from.us</span>, Inc. 2013
+            </div>
+            <div style="display: block; clear: both;"></div>
+        </div>
+        <div style="display: block; clear: both;"></div>
+    </body>
+</html>

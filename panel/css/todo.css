@@ -1,0 +1,164 @@
+html {
+  color: #444;
+  font-size: 100%;
+  background-color: #000;
+  color: #fff;
+  /*background: #f7f7f7 url(../images/bg.png) repeat center top;*/
+
+}
+
+body {
+  font-family: Sergoe UI, Cambria, Georgia, "Times New Roman", Times, serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased; 
+  font-size:18px; 
+  line-height: 1.5;
+}
+
+
+.page-wrap {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  width: 770px;
+  height: 50px;
+  color: #4C4C4C;
+  font-size: 20pt;
+  padding-left: 250px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+
+.names{
+  width:770px;
+}
+.names>div{
+  display:inline-block;
+}
+.content{
+  font-family: Sergoe UI;
+  color: #2AC7E1;
+  margin-top:10px; 
+  width: 655px;
+  margin-right: 105px;
+  float: left;
+  border-top-color: #4C4C4C;
+  border-top-style: solid;
+  border-bottom-width: thin;
+}
+.content .left{
+  width: 40px
+}
+
+.todo-entry{
+  width:770px;
+}
+
+.thentr{
+  width:770px;
+}
+.thentr .left{
+  width:50px;
+}
+.name-text{
+  width:650px;
+  opacity: 0.6;
+}
+.name-text div{
+  width:600px;
+  word-wrap: break-word;
+}
+
+.properties{
+  width:200px;
+  padding-left:60px;
+  padding-right:300px;
+  float:left;
+}
+.properties a.categ{
+  cursor: pointer;
+  /*border: dotted;
+  border-color: #111;  
+  */
+  padding: 1px 3px;
+  font-size: 12pt;
+  /*font-style: italic;*/
+  background-color:  #121212; /*#DCA936;*/
+  color: #4C4C4C;
+  /*text-transform: uppercase;*/
+}
+.properties a.categ:hover,
+.properties a.categ:focus{
+  background-color: #2ac7e1;
+  color: #fff;
+}
+
+
+div.enter-field{
+  width: 770px;
+  line-height: 30px;
+  height: 30px;
+  padding-bottom: 5px;
+  float: left;
+  border: none;
+  margin-top: 65px;
+}
+
+div.enter-field>div{
+  display: block;
+  float: left;
+}
+#enter-field-submit{
+  margin-left: 5px;
+  margin-right: 24px;
+}
+
+
+
+.el-cat>div{
+  position: absolute;
+}
+.menus{
+  font-size: 12pt;
+  z-index:2;
+}
+.menus td{
+    /*border: dotted thin;
+    border-color: #000;*/
+    background-color: #121212;
+    opacity: 1;
+    color: #4C4C4C;
+    
+}
+
+.menus a{
+    padding: 1px 3px;
+    cursor: pointer;
+}
+.menus td:hover{
+  background-color: #2ac7e1;
+  color: #fff;
+  opacity: 1;
+}
+#name_field{
+  border: none;
+  font-family: Sergoe UI;
+  background-color: #197787;
+  display: table-cell;
+  line-height: 30px;
+  font-size: 16pt;
+  color: #fff;
+  width: 400px;
+  padding: 0;
+  margin-right:3px;
+  padding-left:6px;
+  box-shadow:inset 0px 0px 1px 1px #121212;  
+  }
+
+#name_field:focus{
+  border: none;
+  outline: none;
+}

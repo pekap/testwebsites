@@ -1,0 +1,8 @@
+to make div to have the same width as the content:
+inline-block
+table
+
+to center this div:
+make it inline-block and make parent text-align:center;
+                        or
+make it display:table

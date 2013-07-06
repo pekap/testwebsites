@@ -1,0 +1,18 @@
+body{
+    padding-bottom: 50px
+}
+
+div .latex{
+    padding-left: 30px;
+}
+.highlighted{
+    background: rgb(255, 174, 174);
+}
+
+.chart rect {
+  stroke: white;
+  fill: steelblue;
+}
+.new rect{
+    fill:red;
+}

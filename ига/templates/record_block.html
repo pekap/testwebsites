@@ -1,0 +1,36 @@
+{% extends "greetingpage.html" %}
+{% load staticfiles %}
+{% block css_and_js %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/record_block.css' %}" />
+{% endblock %}
+{% block record_opened %}opened{% endblock %}
+{% block content %}
+<div id="rcrd_block">
+    <div id="rcrd_leftside">
+	 <div id="rcrd_webcam">
+	 </div>
+     </div>
+     <div id="rcrd_rightside">
+	 <div id="rcrd_iconline">
+	     <div id="rcrd_icons">
+		 <div class="rcrd_iconrcrd">
+		     
+		 </div>
+		 <div class="rcrd_iconwatch">
+		     
+		 </div>
+		 <div style="display: block; clear: both;"></div>
+	     </div>
+	 </div>
+	 <div id="rcrd_yourname">
+	     Enter your name
+	 </div>
+	 <input placeholder="'Ex. Karen'" type="text">
+	 <a href="" id="rcrd_gofurther">
+		Save
+	 </a>
+	<div style="display: block; clear: both;"></div>
+     </div>
+     <div style="display: block; clear: both;"></div>
+</div>
+{% endblock %}

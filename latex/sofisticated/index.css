@@ -1,0 +1,74 @@
+html,body{
+    margin: 0px;
+    padding: 0px;
+    width:100%;
+    height: 100%;
+    background: #f1f1f1;
+    color: #333;
+}
+.colorize{
+    color:rgb(250, 138, 51);
+}
+.bg_colorize{
+    background-color: rgb(255, 229, 197);
+}
+.pointer{
+    cursor: pointer;
+}
+
+#page-wrap{
+    width: 1000px;
+    
+    margin: 0px auto;
+    margin-top: 30px;
+}
+#header{
+    width: 100%;
+    
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+#content-wrap{
+    width: 100%;
+    
+}
+#formulas{
+    width: 50%;
+    
+    float: left;
+}
+#descriptioncolumn{
+    width: 50%;
+    
+    float: left;
+    box-sizing: border-box;
+    border-left: 1px solid rgb(173, 173, 173);
+}
+#footer{
+    width: 100%;
+    
+}
+
+.descr-el{
+    float: left;
+    width: 100%;
+    font-size: 20px;
+}
+.variable{
+    float: left;
+    
+    width: 10%;
+    text-align: center;
+}
+.description{
+    float: left;
+    
+}
+.title{
+    width: 100%;
+    
+    font-size: 20px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    color: rgb(129, 52, 0);
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title>Welcome to 15.S60 - Web-based interactive visualization with d3.js</title>
+
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<style>
+body {
+  font: 14px sans-serif;
+  padding-top: 50px; 
+}
+
+.navbar-inner{
+  background-color: #444444;
+  background-image: -moz-linear-gradient(top, #444444, #222222);
+  background-image: -ms-linear-gradient(top, #444444, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#222222));
+  background-image: -webkit-linear-gradient(top, #444444, #222222);
+  background-image: -o-linear-gradient(top, #444444, #222222);
+  background-image: linear-gradient(top, #444444, #222222);
+  background-repeat: repeat-x;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#444444', endColorstr='#222222', GradientType=0);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.axis line {
+  stroke: #444;
+  /*shape-rendering: crispEdges;*/
+}
+
+.axis path {
+  display: none;
+}
+
+*.cell rect {
+  fill: #fff;
+  stroke: #444;
+  /*shape-rendering: crispEdges;*/
+}
+
+</style>
+
+<script src="js/d3.v3.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <span style="font-size: 20px; padding: 10px 20px 10px; margin-left: -20px; display: block; float: left; color: #EEEEEE;">15.S60 <span style="font-weight: 100;">Software Tools for Operations Research</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h3>Small Multiples</h3>
+  <p>"A small multiple (sometimes called Trellis Chart, Lattice chart, cell Chart, or Panel Chart) is a series or cell of small similar graphics or charts, allowing them to be easily compared. The term was popularized by <a href="http://www.edwardtufte.com/tufte/index">Edward Tufte</a>." (<a href="http://en.wikipedia.org/wiki/Small_multiple">Wikipedia</a>)</p>
+  <p>The original code can be found <a href="http://bl.ocks.org/3213173">here</a>.</p> 
+</div> 
+
+<div class="container" style="width: 960px; padding: 10px 10px">  
+  <div id="plot">
+  </div>
+</div>  
+
+<script>
+
+var data, features, n, cells;
+var size = 150, // size of each cell
+    padding = 30; // front padding horizontally, and bottom padding vertically
+    margin = {left:50, right: 20, top:20, bottom: 50}; // margin left and bottom for axes
+
+// Domains will be specified based on the plotting attributes
+var x = d3.scale.linear().range([0, size]);
+var y = d3.scale.linear().range([0, size]);
+var color = d3.scale.category10();
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .ticks(5);
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .ticks(5);
+
+d3.csv("dat/iris.csv", function(error, csv){
+  data = csv;
+  features = d3.keys(data[0]).filter(function(d) { return d != "species"; });
+  n = features.length; 
+  cells = [];
+  for(var i=0; i<n; i++){
+    for(var j=0; j<n; j++){
+      cells.push({x: features[i], y: features[j], i: i, j: j});
+    }
+  }
+  plot();
+});
+
+function plot(){
+
+  var svg = d3.select("#plot").append("svg")
+    .attr("width", (size + padding) * n + margin.left + margin.right)
+    .attr("height", (size + padding) * n + margin.top + margin.bottom);
+
+  var g = svg.append("g")
+    .attr("transform", function(d,i){
+      return "translate(" + margin.left + "," + margin.top + ")";
+    })
+  
+  // Compute range of each feature
+  var domains = {};
+  features.forEach( function(f) {
+    domains[f] = d3.extent(data, function(d) { return +d[f]; });
+  });
+
+  // Add x axes
+  // Data: array of features
+  svg.selectAll(".x.axis").data(features).enter()
+    .append("g")
+    .attr("class", "x axis")
+    .attr("transform", function(d,i) {
+      return "translate(" + (margin.left + padding + i*(padding + size)) + "," + (margin.top + (size + padding) * n - padding) + ")";
+    })
+    .each( function(d,i){
+      x.domain(domains[d]);
+      d3.select(this).call(xAxis);
+    });
+
+  // Add y axes
+  // Data: array of features
+  svg.selectAll(".y.axis").data(features).enter()
+    .append("g")
+    .attr("class", "y axis")
+    .attr("transform", function(d,i){
+      return "translate(" + (margin.left + padding) + "," + (margin.top + i*(padding + size)) + ")";
+    })
+    .each(function(d,i){
+      y.domain(domains[d]);
+      d3.select(this).call(yAxis);
+    });
+
+  // Plot each cell
+  // Data: array of cells
+  g.selectAll(".cell").data(cells).enter()
+    .append("g")
+    .attr("class", "cell")
+    .attr("transform", function(d) { 
+      return "translate(" + (d.i*(padding + size) + padding) + "," + (d.j * (padding + size)) + ")"; 
+    })
+    .each(function (dd) {
+      d3.select(this).append("rect")
+        .attr({width: size, height: size});
+
+      x.domain(domains[dd.x]);
+      y.domain(domains[dd.y]);
+
+      d3.select(this).selectAll(".point")
+        .data(data).enter()
+        .append("circle")
+        .attr("class", "point")
+        .attr("cx", function(d,i) { return x(+d[dd.x]); })
+        .attr("cy", function(d,i) { return y(+d[dd.y]); })
+        .attr("r", 3)
+        .style("fill", function(d,i) { return color(d.species); })
+        .style("opacity", 0.5)
+
+      if(dd.i == dd.j){
+        d3.select(this).append("text")
+          .attr("x", size - 5)
+          .attr("y", 15)
+          .text(dd.x)
+          .style("text-anchor", "end")
+          .style("fill", "#000");
+      }
+    });
+}
+
+</script>
+
+</body>
+</html>

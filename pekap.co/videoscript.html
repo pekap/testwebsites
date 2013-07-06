@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script language="JavaScript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script language="JavaScript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+        <script language="JavaScript" src="scriptcam.js"></script>
+
+    </head>
+    <script>
+        $(document).ready(function(){
+            $("#webcam").scriptcam({
+                fileName: 'newevideo',
+                width: 640,
+                height: 480,
+                //promptWillShow: showMessage,
+                onError: oopsError,
+                connected: enableRecord,
+				fileReady: fileReady,
+            });
+            function showMessage() {
+                alert('A security dialog will be shown. Please click ACCEPT.');
+            }
+			function fileReady(fileName){
+				console.log("vse cruto");
+                $('#message').html('This file is now dowloadable for five minutes over <a href="'+fileName+'">here</a>.');
+			}
+            function oopsError(errorId,errorMsg){
+                alert(errorMsg);
+            }
+            function enableRecord(){
+                $('#recordButton').show();
+                $('#recordButton').on("click",function(){
+                    $.scriptcam.startRecording();
+                })
+                $('#stopButton').on("click",function(){
+                    $.scriptcam.closeCamera();
+					$('#message').html('Please wait for the file conversion to finish...');
+                })
+            }
+        })
+    </script>
+    <body>
+        <div id="webcam">
+            
+        </div>
+		<div id="recordButton" style="cursor:pointer">
+			record
+		</div>
+		<div id="stopButton" style="cursor:pointer">
+			stoprecording
+		</div>
+		<div id="message">
+			here will be message
+		</div>
+		</body>
+    
+    
+</html>

@@ -1,0 +1,23 @@
+#top {
+    cursor: pointer;
+    border: thin solid;
+    font-style: italic;
+}
+#el-cat {
+    padding-left: 100px;
+    font-style: italic;
+}
+#menu{
+    position:absolute;
+}
+.menus{
+    z-index:10;
+    background: #fff;
+}
+.menus td{
+    border: dotted thin;
+    border-color: #000;
+}
+.menus a{
+    cursor: pointer;
+}

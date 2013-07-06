@@ -1,0 +1,77 @@
+a.button{
+  cursor: pointer;
+  display: block;
+  position: relative;
+  line-height: 25px;
+  padding-bottom: 5px;
+  font-size: 30pt;
+  width: 30px;
+  background-color: #3D3D3D;
+  color: #fff;
+  opacity: 0.3;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+a.button:hover,
+a.button:focus{
+      opacity: 1;
+      background-color: #2ac7e1;
+}
+a.refresh{
+  font-size: 15pt;
+  font: bold;
+  padding-bottom: 3px;
+  line-height: 27px;
+}
+/*
+.thentr .left .refresh{
+  width: 65px;
+}
+.name-text .refresh{
+  width: 635px;
+}*/
+/*
+a.button {
+  cursor:pointer;
+  display: block;
+  background-color: #f7f7f7;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e7e7e7));
+  background-image: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7); 
+  background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7); 
+  background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7); 
+  background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7); 
+  color: #a7a7a7;
+  margin: 6px;
+  width: 23px;
+  height: 23px;
+  position: relative;
+  font-size:20pt;
+  text-align: center;
+  line-height: 23px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 8px #faa, inset 0px 2px 3px #fff;
+}
+
+a.button:hover {
+  text-decoration: none;
+  color: #555;
+  background: #f5f5f5;
+}
+
+
+a.button:before {
+  content: "";
+  display: block;
+  background: #fff;
+  border-top: 2px solid #ddd;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  bottom: -4px;
+  right: -4px;
+  z-index: -1;
+  border-radius: 50%;
+  box-shadow: inset 0px 8px 48px #ddd;
+}
+*/

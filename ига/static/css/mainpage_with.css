@@ -1,0 +1,299 @@
+
+
+html, body {background:#fff;}
+a:link,a:visited{
+	/* text-decoration:none; */
+	color: #333;
+}
+a:hover{
+	color: #666;
+}
+body {
+	width: 100%; 
+	min-width: 980px; 
+	font:18px "Segoe UI";
+}
+#wraping_page{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+/* Header */
+#header{
+	position:relative;
+	margin:0 auto;
+	margin-bottom: 30px;
+	width: 980px;
+	border-bottom: 1px solid #E1E1E1;
+	padding-bottom: 10px;
+}
+#logo{
+	padding-left:10px;
+	float:left;
+	width:auto;
+} 
+#logo a{font-size: 20pt; font-weight:bold; text-decoration:none;}
+#userinfo{
+	padding-right:10px;
+	float:right;
+	width:auto;
+	line-height: 37px;
+	color:#666;
+}
+
+/* Body */
+#page_body{
+	position: relative;
+	display:block;
+	margin: 0 auto;
+	width: 980px;
+}
+	#leftside{
+		display:block;
+		float:left;
+		width:540;
+	}
+		.magic_button{
+			display:table;
+			margin:35px auto;
+			margin-bottom:0px;
+			height:100px;
+			width:540;
+		}
+		.magic_button div{
+			display:table-cell;
+			vertical-align:middle;
+			text-align:center;
+			width:400px;
+		}
+		.magic_button div a{
+			text-transform: uppercase;
+			color:#666;
+			font-weight:bold;
+			text-decoration:none;
+			border:solid 3px #666;
+			padding:5px 10px;
+		}
+		.hiw_video{
+			display:block;
+			width: 530px;
+			height: 280px;
+			border: 1px solid #E1E1E1;
+		}
+	
+	#rightside{
+		display:block;
+		float:right;
+		width:440px;
+	}	
+		#block_examples{
+			padding: 0px;
+		}
+		#title_examples{
+			width:440px;
+			text-align:center;
+		}
+		.el_example{
+			display:block;
+			float:left;
+			width:180px;
+			border: 1px solid #E1E1E1;
+			margin: 10px 18px;
+		}
+		.ex_video{
+			display:block;
+			float: left;
+			width: 180px;
+			height: 100px;
+			border: 1px solid #E1E1E1;
+		}
+		.el_example p{
+			text-align:center;
+			margin: 0px auto;
+			color: #333;
+		}
+
+
+/* Footer */
+#footer{
+	display:block;
+	position:relative;
+	margin:0px auto;
+	margin-top: 30px;
+	width: 980px;
+	border-top: 1px solid #E1E1E1;
+	padding-top: 10px;
+}
+#f_links{
+	margin:0;
+	display: block;
+	float:left;
+	padding-left:10px;
+	color:#666;
+}
+#f_links a{
+	color:#666;
+}
+#f_links ul{
+	list-style:none outside;
+}
+#f_links li{
+	float: left;
+	display: inline;
+	padding:0 10px;
+}
+	
+#f_copyright{
+	margin:0;
+	display:block;
+	float: right;
+	width: auto;
+	text-align:right;
+	padding-right:10px;
+	color:#666; 
+}
+
+/* Pop-up */
+#layer_bg{
+	display: block;
+	background: #000;
+	opacity: 0.7;
+	top:0;
+	left:0;
+	width:100%;
+	height: 100%;
+	position: fixed;
+	z-index: 100;
+}
+#pop_up_wrap{
+	display: block;
+	top:0;
+	left:0;
+	width:100%;
+	height: 100%;
+	position: absolute;
+	z-index: 101;
+}
+	#pop_up_new{
+		position: relative;
+		margin: 0px auto;
+		top: 70px;
+		background: #fff;
+		width: 800px;
+		height: 510px;
+		z-index: 102;
+	
+		box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.7);
+	
+		font-size: 20px;
+}
+		#ppp_close{
+			display: block;
+			float: right;
+			padding: 5px 15px;
+			text-decoration: underline;
+			color: #666;
+		
+			cursor: pointer;
+		
+			font-size: 15px;
+}
+		#pop_up_new p{
+			margin: 0px;
+			color: #999;
+			display: block;
+			float: left;
+		
+			line-height: 30px;
+			padding: 0px 20px;
+}
+		#pop_up_new input,
+		#pop_up_new textarea
+		{
+			float: left;
+			border: solid 1px #666;
+			display: table-cell;
+			line-height: 28px;
+			width: 200px;
+			box-shadow: inset 0px 0px 2px 0px #666;
+		
+			font-size: 20px;
+			padding: 0px 7px;
+			font-family: Segoe UI;
+			font-weight: normal;
+}
+		.ppp_description{
+			padding-left: 20px;
+			padding-top: 10px;
+		    }
+		#ppp_name{
+			padding-left: 20px;
+		
+			margin-top: 10px;
+}
+		#ppp_emailpswd{
+			padding-left: 20px;
+		      margin-top: 10px;
+}
+		#ppp_emails{
+			padding-left: 20px;
+		    
+			margin-top: 10px;
+		
+			margin-bottom: 5px;
+}
+			#ppp_emails input{width:600px} 			
+			#ppp_emails p{
+				padding-right: 0px;
+			}
+		#ppp_msgbody{
+			width: 780px;
+			padding-left: 20px;
+			display: block;
+		}
+			#ppp_msgbody textarea{
+				width:600px;height:150px;
+				resize: none;
+				-webkit-scrollbar-width: 40px;
+				}
+			#ppp_msgbody p{
+				padding-right: 0px;
+			}
+		#ppp_gofurther{
+			float: left;
+			position: relative;
+			display: block;
+			text-decoration: none;
+			margin-left: 20px;
+			margin-top: 10px;
+			padding: 5px 10px;
+			color: white;
+			font-weight: bold;
+			background: #1E82CC;
+			box-shadow: 0px 5px 40px -16px #666;
+			background: -webkit-linear-gradient(to bottom, rgba(245,246,246,0.57) 0%,rgba(184,186,198,0.57) 49%,rgba(245,246,246,0.57) 100%);
+		}
+		#ppp_gofurther:hover{
+			background: #2672EC;/*black;*/
+		}
+		#ppp_guideline{
+			width: 560px;
+			padding: 0px 120px;
+			float: left;
+			margin-top: 30px;
+			border-top: solid 1px #999;
+		    }
+		.ppp_textinguide{
+			float: left;			    
+			margin: 0px 10px;
+			font-size: 14px;
+			width: 120px;
+			text-align: center;
+		    }
+		.active{
+			border-top: solid 2px #1E82CC;
+		    }
+		.inactive{
+			border-top: solid 2px #999;
+		    }

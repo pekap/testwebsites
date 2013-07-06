@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title>Welcome to 15.S60 - Web-based interactive visualization with d3.js</title>
+
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<style>
+body {
+  font: 14px sans-serif;
+  padding-top: 50px; 
+}
+
+.navbar-inner{
+  background-color: #444444;
+  background-image: -moz-linear-gradient(top, #444444, #222222);
+  background-image: -ms-linear-gradient(top, #444444, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#222222));
+  background-image: -webkit-linear-gradient(top, #444444, #222222);
+  background-image: -o-linear-gradient(top, #444444, #222222);
+  background-image: linear-gradient(top, #444444, #222222);
+  background-repeat: repeat-x;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#444444', endColorstr='#222222', GradientType=0);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.regression {
+  stroke: #CC9933;
+}
+</style>
+
+<script src="js/d3.v3.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <span style="font-size: 20px; padding: 10px 20px 10px; margin-left: -20px; display: block; float: left; color: #EEEEEE;">15.S60 <span style="font-weight: 100;">Software Tools for Operations Research</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h3>Anscombe's quartet</h3>
+  <p>"Anscombe's quartet comprises four datasets that have nearly identical simple statistical properties, yet appear very different when graphed. Each dataset consists of eleven (x,y) points. They were constructed in 1973 by the statistician Francis Anscombe to demonstrate both the importance of graphing data before analyzing it and the effect of outliers on statistical properties." (<a href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet">Wikipedia</a>)</p>
+  <p>Anscombe, F. J. (1973). "Graphs in Statistical Analysis". American Statistician 27 (1): 17–21</p>
+  <p><select id='dropdown' class="span3" style="height: 25px; margin: 5px 0px;" onchange="update()">  
+  </select></p>
+</div> 
+
+<div class="container" style="width: 960px; padding: 10px 10px">  
+  <div id="plot">
+  </div>
+</div>  
+
+<script>
+var data;
+
+var margin = {top: 50, right: 200, bottom: 50, left: 200},
+    width = 960 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+var svg = d3.select("#plot").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom);
+
+var g = svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var x = d3.scale.linear().domain([0,20]).range([0, width]).nice();
+var y = d3.scale.linear().domain([0,14]).range([height, 0]).nice();
+
+// Add axes
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(" + margin.left + "," + (margin.top+height+10) + ")")
+    .call(xAxis)
+  .append("text")
+    .attr("x", width)
+    .attr("y", -6)
+    .style("text-anchor", "end")
+    .text("X");
+
+svg.append("g")
+    .attr("class", "axis")
+    .attr("transform", "translate(" + (margin.left-10) + "," + margin.top + ")")
+    .call(yAxis)
+  .append("text")
+    .attr("x", 6)
+    .text("Y");
+
+d3.json("dat/anscombe.json", function(json){
+  data = json; 
+  for(var i=0; i<data.length; i++){
+    d3.select("#dropdown").append("option")
+      .attr("value", i)
+      .text('Dataset ' + (i+1)); 
+  }
+  plot(0);
+});
+
+function update(){
+  var e = document.getElementById("dropdown");
+  index = e.options[e.selectedIndex].value;
+  plot(index);
+}
+
+function plot(index){
+  // Remove everything in the plot!
+  // g.selectAll("*").remove();
+
+  // Bind data to elements
+  var dataModel = g.selectAll(".point").data(data[index]);
+
+  // Append elements
+  var newElement = dataModel.enter().append("circle")
+      .attr("class", "point")
+      .attr("cx", function(d,i){ return x(d.x); })
+      //.attr("cy", function(d,i){ return y(d.y); }) 
+      .attr("cy", 0) 
+      .attr("r", 5)
+      .style("fill", "#3399CC")
+      .style("fill-opacity", 0.8)
+      .style("stroke", "none");  
+
+  // Update elements instead of redrawing everything
+
+  // dataModel.attr("cx", function(d,i){ return x(d.x); })
+  //  .attr("cy", function(d,i){ return y(d.y); });
+
+  // with transitions
+  dataModel.transition()
+    .duration(1000)
+    .attr("cx", function(d,i){ return x(d.x); })
+    .attr("cy", function(d,i){ return y(d.y); });
+
+  // Regression line: y = 3.0 + 0.5x
+  g.selectAll("line").remove();
+  g.append("line")
+    .attr("class", "regression")
+    .attr("x1", x(2.0))
+    .attr("y1", y(3.0 + 0.5*2.0))
+    .attr("x2", x(18.0))
+    .attr("y2", y(3.0 + 0.5*18.0));
+}
+
+</script>
+
+</body>
+</html>
